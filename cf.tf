@@ -1,20 +1,20 @@
-resource "aws_s3_bucket" "pps-prince" {
-bucket = "pps-prince1"
+resource "aws_s3_bucket" "pps-princess" {
+bucket = "pps-princess1"
 acl    = "private"
 tags = {
-Name        = "pps-prince"
+Name        = "pps-princess"
 }
 }
 // Block Public Access
 resource "aws_s3_bucket_public_access_block" "s3Public" {
-bucket = "${aws_s3_bucket.pps-prince.id}"
+bucket = "${aws_s3_bucket.pps-princess.id}"
 block_public_acls   = true
 block_public_policy = true
 restrict_public_buckets = true
 }
 
 locals {
-s3_origin_id = "princes3"
+s3_origin_id = "princess3"
 }
 // Creating Origin Access Identity for CloudFront
 resource "aws_cloudfront_origin_access_identity" "origin_access_identity" {
